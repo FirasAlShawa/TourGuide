@@ -17,27 +17,42 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    //Views
     GridView CategoryGrid;
+
+    //Lists and Adapters
     List<Category> categories;
-    DatabaseReference CategoryRef;
     CategoryAdapter categoryAdapter;
+
+    //Firebase vars
+    DatabaseReference CategoryRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Firebase initializeApp
         FirebaseApp.initializeApp(getApplicationContext());
 
+        //Get Category Reference
         CategoryRef = FirebaseDatabase.getInstance().getReference("Category");
 
+        //get the gridView
         CategoryGrid = findViewById(R.id.CategoryGridView);
+
+        //Arraylist to maintain the categories from Firebase
         categories = new ArrayList<>();
+
+        //Value event listener to get all the data from the "Category" Reference
         CategoryRef.addValueEventListener(displayCategory);
+
+        //init Category Adapter
         categoryAdapter= new CategoryAdapter(this,categories);
-//        CategoryGrid.setAdapter(categoryAdapter);
 
     }
+
+    //ValueEventListener To retrive and display all the categories
     ValueEventListener displayCategory = new ValueEventListener() {
         @Override
         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -54,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            System.out.println("Error : "+databaseError.getMessage());
         }
     };
 
