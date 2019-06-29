@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants"
     >
 
     <Button
@@ -14,9 +15,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/cate_btn_default"
         android:text="Title"
+        android:focusable="false"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textSize="20dp"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
        />
 
     <!--<TextView-->

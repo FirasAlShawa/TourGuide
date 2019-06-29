@@ -3,7 +3,10 @@ package com.example.tour_guide;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -49,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
 
         //init Category Adapter
         categoryAdapter= new CategoryAdapter(this,categories);
+
+        //On Grid View item click
+        CategoryGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(),categories.get(position).getType(),Toast.LENGTH_LONG).show();
+            }
+        });
+
 
     }
 
