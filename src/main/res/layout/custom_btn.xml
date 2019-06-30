@@ -10,7 +10,7 @@
     >
 
     <Button
-        android:id="@+id/CateImgBtn"
+        android:id="@+id/CustomBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/cate_btn_default"

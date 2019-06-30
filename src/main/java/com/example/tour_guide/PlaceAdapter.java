@@ -1,33 +1,27 @@
 package com.example.tour_guide;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.BaseAdapter;
 
 import java.util.List;
 
-public class CategoryAdapter extends BaseAdapter {
-    private Context context;
-    private List<Category> categories;
+public class PlaceAdapter extends BaseAdapter {
 
-    public CategoryAdapter(Context context, List<Category> categories) {
-        this.context = context;
-        this.categories = categories;
-    }
+    private Context context;
+    private List<Place> places;
 
     @Override
     public int getCount() {
-        return categories.size();
+        return places.size();
     }
 
     @Override
-    public Category getItem(int position) {
-        return categories.get(position);
+    public Place getItem(int position) {
+        return places.get(position);
     }
 
     @Override
@@ -37,15 +31,14 @@ public class CategoryAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-
         if(view == null){
             view = LayoutInflater.from(context).inflate(R.layout.custom_btn,parent,false);
         }
-        Button btn = view.findViewById(R.id.CustomBtn);
-//        TextView title = view.findViewById(R.id.CateTxtView);
 
-//        title.setText(categories.get(position).getType());
-        btn.setText(categories.get(position).getType());
+        Button btn = view.findViewById(R.id.CustomBtn);
+
+        btn.setText(places.get(position).getTitle());
+
         return view;
     }
 }

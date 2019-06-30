@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         CategoryGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),categories.get(position).getType(),Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),categories.get(position).getType(),Toast.LENGTH_LONG).show();
             }
         });
 
